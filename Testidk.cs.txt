@@ -1,0 +1,388 @@
+//WHY SO SERIOUS? TEEHHEHEHEDBEHDEHNDHEMCUEJDNNEHEHHEHEEHEHEHEHE 
+//CAVE DIVER IDK HELP ME BRO PLS SAVE MY DYING BRAIN
+using UnityEngine;
+using System;
+using System.Linq;
+using System.Reflection;
+using System.IO;
+using System.Security.Cryptography;
+using System.Diagnostics;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using System.Text;
+using UnityEditor;
+
+public class SkibididdyRizz : MonoBehaviour
+{
+    private string skibidiHash;
+    private List<string> bwenKeywords = new List<string> { "cheat", "hack", "mod", "exploit", "inject", "trainer", "debug" };
+    private List<string> sigmaAssemblies = new List<string> { "unityengine", "system", "microsoft", "mono" };
+    private List<string> goatedBehaviours = new List<string> { "transform", "camera", "renderer", "audio", "light" };
+    private List<string> processBlacklist = new List<string> { "notepad", "explorer", "chrome" }; // Block bad processes
+    private static bool rizzActive = true;
+    private DateTime lastCheckTime = DateTime.Now;
+
+    private void Start()
+    {
+        skibidiHash = ErmWatTheJakal(); // why my dog walk sideways bro
+        RizzProcesses(); // Monitor running processes
+        BwenedianIntegrity(); // Check for file tampering
+        OhioDebugger(); // Watch out for debuggers
+        GigaAssemblyScan(); // Look for weird assemblies
+        Massive(); // dont ask 
+        HardwareSigma(); // why did u put cheese in my cheeseburger bro 😭
+        ProtectTheRizz(); // just put the fries in the bag
+        LogRizzStart(); // Log the start of protection
+    }
+
+    private void RizzProcesses()
+    {
+        Task.Run(() =>
+        {
+            while (rizzActive)
+            {
+                Thread.Sleep(UnityEngine.Random.Range(2000, 5000)); // Wait a bit before checking
+                SussyProcesses(); // Check suspicious processes
+                LogProcessCheck(); // Log the check
+            }
+        });
+    }
+
+    private void BwenedianIntegrity()
+    {
+        Task.Run(() =>
+        {
+            while (rizzActive)
+            {
+                Thread.Sleep(UnityEngine.Random.Range(10000, 20000)); // Wait some time
+                FileNoCap(); // Check for file integrity
+                LogIntegrityCheck(); // Log file check
+            }
+        });
+    }
+
+    private void OhioDebugger()
+    {
+        Task.Run(() =>
+        {
+            while (rizzActive)
+            {
+                Thread.Sleep(UnityEngine.Random.Range(1000, 3000)); // Short sleep
+                DebuggerGoofyAhh(); // Check for attached debugger
+            }
+        });
+    }
+
+    private void GigaAssemblyScan()
+    {
+        Task.Run(() =>
+        {
+            while (rizzActive)
+            {
+                Thread.Sleep(UnityEngine.Random.Range(5000, 10000)); // Wait a little
+                SigmaInjected(); // Look for injected code
+                LogAssemblyScan(); // Log assembly check
+            }
+        });
+    }
+
+    private void Massive()
+    {
+        Task.Run(() =>
+        {
+            while (rizzActive)
+            {
+                Thread.Sleep(UnityEngine.Random.Range(5000, 10000)); // Wait some
+                WackMono(); // Monitor MonoBehaviours
+                LogMonoCheck(); // Log behaviour check
+                Debug.log("LOWWWW TAPER FADE") // JAKALVR ADMIT THAT THE LOW TAPER FADE MEME IS MASSIVE
+            }
+        });
+    }
+
+    private void HardwareSigma()
+    {
+        Task.Run(() =>
+        {
+            while (rizzActive)
+            {
+                Thread.Sleep(UnityEngine.Random.Range(10000, 20000)); // Wait some time
+                HardwareGoofy(); // Check hardware ID
+                LogHardwareCheck(); // Log hardware check
+            }
+        });
+    }
+
+    private void ProtectTheRizz()
+    {
+        try
+        {
+            // Don't run these checks if in Unity Editor or debug mode
+            if (!Application.isEditor && !Debug.isDebugBuild)
+            {
+                if (Debugger.IsAttached)
+                {
+                    Application.Quit(); // Quit if debugger found
+                }
+            }
+            Thread.Sleep(1000); // Small delay
+        }
+        catch
+        {
+            Application.Quit(); // Quit on any error
+        }
+    }
+
+    private void SigmaInjected()
+    {
+        try
+        {
+            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            foreach (var assembly in assemblies)
+            {
+                string assemblyName = assembly.GetName().Name.ToLower();
+                if (ContainsBwen(assemblyName) && !SafeAssembly(assemblyName))
+                {
+                    Application.Quit(); // Quit if bad assembly found
+                }
+            }
+        }
+        catch
+        {
+            Application.Quit(); // Quit on any error
+        }
+    }
+
+    private void WackMono()
+    {
+        try
+        {
+            var allMonoBehaviours = Resources.FindObjectsOfTypeAll<MonoBehaviour>();
+            foreach (var behaviour in allMonoBehaviours)
+            {
+                string behaviourName = behaviour.GetType().Name.ToLower();
+                if (ContainsBwen(behaviourName) && !SafeBehaviour(behaviourName))
+                {
+                    Application.Quit(); // Quit if bad MonoBehaviour found
+                }
+            }
+        }
+        catch
+        {
+            Application.Quit(); // Quit on any error
+        }
+    }
+
+    private void SussyProcesses()
+    {
+        try
+        {
+            var processes = Process.GetProcesses();
+            foreach (var process in processes)
+            {
+                if (ContainsBwen(process.ProcessName.ToLower()) && !SafeProcess(process.ProcessName))
+                {
+                    Application.Quit(); // Quit if suspicious process found
+                }
+            }
+        }
+        catch
+        {
+        }
+    }
+
+    private void FileNoCap()
+    {
+        try
+        {
+            string appHash = ErmWatTheJakal();
+            if (!appHash.Equals(skibidiHash, StringComparison.OrdinalIgnoreCase))
+            {
+                Application.Quit(); // Quit if file modified
+            }
+        }
+        catch
+        {
+            Application.Quit(); // Quit on any error
+        }
+    }
+
+    private void DebuggerGoofyAhh()
+    {
+        try
+        {
+            if (Debugger.IsAttached || Debugger.IsLogging() || RizzDebugger())
+            {
+                Application.Quit(); // Quit if debugger detected
+            }
+        }
+        catch
+        {
+            Application.Quit(); // Quit on any error
+        }
+    }
+
+    private void HardwareGoofy()
+    {
+        try
+        {
+            string systemId = GetSigmaID();
+            if (systemId != "expected_system_fingerprint")
+            {
+                Application.Quit(); // Quit if hardware doesn't match
+            }
+        }
+        catch
+        {
+            Application.Quit(); // Quit on any error
+        }
+    }
+
+    private string ErmWatTheJakal()
+    {
+        try
+        {
+            List<string> allAssetPaths = new List<string>();
+            UnityEngine.Object[] allAssets = Resources.FindObjectsOfTypeAll<UnityEngine.Object>();
+
+            foreach (var asset in allAssets)
+            {
+                if (asset != null && !asset.name.Contains("unityeditor") && !asset.name.Contains("manifest"))
+                {
+                    allAssetPaths.Add(AssetDatabase.GetAssetPath(asset));
+                }
+            }
+
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                StringBuilder hashBuilder = new StringBuilder();
+                foreach (var assetPath in allAssetPaths)
+                {
+                    byte[] assetBytes = File.ReadAllBytes(assetPath);
+                    byte[] assetHash = sha256.ComputeHash(assetBytes);
+                    hashBuilder.Append(BitConverter.ToString(assetHash).Replace("-", "").ToLower());
+                }
+
+                return hashBuilder.ToString(); // Return the hash of all assets
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Bruh moment: " + ex.Message); // Log error
+            return string.Empty;
+        }
+    }
+
+    private string GetSigmaID()
+    {
+        return SystemInfo.deviceUniqueIdentifier; // Return unique device ID
+    }
+
+    private bool ContainsBwen(string input)
+    {
+        return bwenKeywords.Any(keyword => input.Contains(keyword)); // Check for Bwen-related keywords
+    }
+
+    private bool SafeAssembly(string assemblyName)
+    {
+        return sigmaAssemblies.Any(safe => assemblyName.Contains(safe)); // Allow only safe assemblies
+    }
+
+    private bool SafeBehaviour(string behaviourName)
+    {
+        return goatedBehaviours.Any(safe => behaviourName.Contains(safe)); // Allow only safe behaviours
+    }
+
+    private bool SafeProcess(string processName)
+    {
+        return sigmaAssemblies.Any(safe => processName.Contains(safe)) || !processBlacklist.Contains(processName.ToLower()); // Allow only safe processes
+    }
+
+    private bool RizzDebugger()
+    {
+        return Environment.HasShutdownStarted || MonoDebugger() || DebuggerAttached(); // Check for any debugger
+    }
+
+    private bool MonoDebugger()
+    {
+        try
+        {
+            Process currentProcess = Process.GetCurrentProcess();
+            foreach (ProcessModule module in currentProcess.Modules)
+            {
+                if (module.ModuleName.ToLower().Contains("mono"))
+                {
+                    return true; // Return true if Mono debugger detected
+                }
+            }
+        }
+        catch
+        {
+        }
+        return false;
+    }
+
+    private bool DebuggerAttached()
+    {
+        try
+        {
+            return Debugger.IsAttached || Debugger.IsLogging(); // Check if debugger is attached
+        }
+        catch
+        {
+            return false; // Return false on error
+        }
+    }
+
+    private void Update()
+    {
+        if (RizzDebugger()) // If debugger detected
+        {
+            Application.Quit(); // Quit the app
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        rizzActive = false; // Stop all checks when app quits
+    }
+
+    private void LogRizzStart()
+    {
+        Debug.Log("Skibididdy Rizz has started successfully. Proceed with caution."); // Log startup
+    }
+
+    private void LogProcessCheck()
+    {
+        Debug.Log("Checking running processes..."); // Log process check
+    }
+
+    private void LogIntegrityCheck()
+    {
+        Debug.Log("Performing file integrity check..."); // Log file check
+    }
+
+    private void LogAssemblyScan()
+    {
+        Debug.Log("Scanning for injected assemblies..."); // Log assembly scan
+    }
+
+    private void LogMonoCheck()
+    {
+        Debug.Log("Checking for abnormal MonoBehaviour..."); // Log MonoBehaviour check
+    }
+
+    private void LogHardwareCheck()
+    {
+        Debug.Log("Performing hardware check..."); // Log hardware check
+    }
+
+    private void LogProtectionStatus()
+    {
+        TimeSpan timeSinceLastCheck = DateTime.Now - lastCheckTime;
+        Debug.Log($"Protection status checked. Time since last check: {timeSinceLastCheck.TotalSeconds} seconds."); // Log protection status
+        lastCheckTime = DateTime.Now;
+    }
+}
